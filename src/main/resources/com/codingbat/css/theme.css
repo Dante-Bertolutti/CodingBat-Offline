@@ -1,0 +1,313 @@
+/*
+ * CodingBat Offline Theme
+ * Based on MDB color palette:
+ *   Orange accent:  #ff9900 / #e68a00
+ *   Black:          #0a0a0a
+ *   Dark 1:         #111111
+ *   Dark 2:         #1a1a1a
+ *   Dark 3:         #222222
+ *   Text:           #e5e7eb
+ */
+
+/* === Base === */
+
+.root-pane {
+    -fx-background-color: #0a0a0a;
+}
+
+/* === Sidebar === */
+
+.sidebar {
+    -fx-background-color: #111111;
+    -fx-border-color: #222222;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-title {
+    -fx-text-fill: #ff9900;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-subtitle {
+    -fx-text-fill: #666666;
+    -fx-font-size: 12px;
+}
+
+.category-pane {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e5e7eb;
+}
+
+.category-pane > .title {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12;
+}
+
+.category-pane > .title > .text {
+    -fx-fill: #e5e7eb;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.category-pane > .title > .arrow-button .arrow {
+    -fx-background-color: #666666;
+}
+
+.category-pane > *.content {
+    -fx-background-color: transparent;
+    -fx-padding: 4 0 4 8;
+}
+
+.problem-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #999999;
+    -fx-font-size: 12px;
+    -fx-padding: 6 12;
+    -fx-background-radius: 6;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+}
+
+.problem-btn:hover {
+    -fx-background-color: #222222;
+    -fx-text-fill: #ff9900;
+}
+
+.problem-btn:pressed {
+    -fx-background-color: #333333;
+}
+
+/* === Content Area === */
+
+.content-area {
+    -fx-background-color: #0a0a0a;
+}
+
+.welcome-title {
+    -fx-text-fill: #e5e7eb;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-padding: 60 0 8 0;
+}
+
+.welcome-hint {
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px;
+}
+
+.problem-title {
+    -fx-text-fill: #e5e7eb;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.problem-category {
+    -fx-text-fill: #0a0a0a;
+    -fx-background-color: #ff9900;
+    -fx-background-radius: 12;
+    -fx-padding: 3 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.problem-desc {
+    -fx-fill: #cccccc;
+    -fx-font-size: 13px;
+}
+
+.problem-desc-flow {
+    -fx-line-spacing: 3;
+}
+
+.method-signature {
+    -fx-text-fill: #ff9900;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-background-color: #111111;
+    -fx-background-radius: 8;
+    -fx-padding: 10 14;
+}
+
+/* === Code Editor (RichTextFX) === */
+
+.code-area {
+    -fx-background-color: #111111;
+    -fx-border-color: #222222;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+.code-area .content {
+    -fx-background-color: #111111;
+    -fx-padding: 8;
+}
+
+.code-area .text {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 14px;
+}
+
+.code-area .caret {
+    -fx-stroke: #ff9900;
+}
+
+.code-area .selection {
+    -fx-fill: #333333;
+}
+
+.code-area .paragraph-box:has-caret {
+    -fx-background-color: rgba(26, 26, 26, 0.8);
+}
+
+/* Line numbers gutter */
+.code-area .lineno {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-fill: #444444;
+    -fx-background-color: #111111;
+}
+
+.code-area .paragraph-box .left-bar {
+    -fx-background-color: #111111;
+    -fx-padding: 0 8 0 4;
+    -fx-border-color: #222222;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Virtual flow background */
+.code-area .virtual-flow,
+.code-area .virtual-flow .clipped-container,
+.code-area .virtual-flow .clipped-container .sheet,
+.code-area .virtual-flow .clipped-container .sheet .paragraph-box {
+    -fx-background-color: #111111;
+}
+
+/* === Run Button === */
+
+.run-btn {
+    -fx-background-color: #ff9900;
+    -fx-text-fill: #0a0a0a;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 28;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.run-btn:hover {
+    -fx-background-color: #e68a00;
+}
+
+.run-btn:pressed {
+    -fx-background-color: #cc7a00;
+}
+
+/* === Results === */
+
+.results-scroll {
+    -fx-background-color: transparent;
+}
+
+.results-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.results-box {
+    -fx-padding: 8;
+}
+
+.result-row {
+    -fx-padding: 8 12;
+    -fx-background-radius: 6;
+}
+
+.result-pass {
+    -fx-background-color: #0f2010;
+}
+
+.result-fail {
+    -fx-background-color: #200f0f;
+}
+
+.pass-label {
+    -fx-text-fill: #4ade80;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-font-family: "Consolas", monospace;
+}
+
+.fail-label {
+    -fx-text-fill: #f87171;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-font-family: "Consolas", monospace;
+}
+
+.result-input {
+    -fx-text-fill: #e5e7eb;
+    -fx-font-family: "Consolas", monospace;
+    -fx-font-size: 12px;
+}
+
+.result-arrow {
+    -fx-text-fill: #666666;
+    -fx-font-family: "Consolas", monospace;
+    -fx-font-size: 12px;
+}
+
+.result-actual {
+    -fx-text-fill: #e5e7eb;
+    -fx-font-family: "Consolas", monospace;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.result-expected {
+    -fx-text-fill: #f87171;
+    -fx-font-family: "Consolas", monospace;
+    -fx-font-size: 11px;
+    -fx-font-style: italic;
+}
+
+.summary-pass {
+    -fx-text-fill: #4ade80;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 0 8 0;
+}
+
+.summary-fail {
+    -fx-text-fill: #f87171;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 0 8 0;
+}
+
+/* === Scrollbar Styling === */
+
+.scroll-bar {
+    -fx-background-color: #111111;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #333333;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #ff9900;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: "";
+    -fx-padding: 0;
+}
