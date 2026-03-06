@@ -52,6 +52,14 @@ public class MainView {
         VBox.setMargin(subtitle, new Insets(0, 0, 20, 0));
         sidebar.getChildren().add(subtitle);
 
+        ScrollPane sidebarScroll = new ScrollPane();
+        VBox sidebarContent = new VBox(4);
+        sidebarScroll.setContent(sidebarContent);
+        sidebarScroll.setFitToWidth(true);
+        sidebarScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        sidebarScroll.getStyleClass().add("sidebar-scroll");
+        VBox.setVgrow(sidebarScroll, Priority.ALWAYS);
+
         for (String category : ProblemBank.getCategories()) {
             TitledPane categoryPane = new TitledPane();
             categoryPane.setText(category);
@@ -67,8 +75,24 @@ public class MainView {
                 problemList.getChildren().add(btn);
             }
             categoryPane.setContent(problemList);
-            sidebar.getChildren().add(categoryPane);
+            sidebarContent.getChildren().add(categoryPane);
         }
+
+        // Documentation section
+        Label docsHeader = new Label("Java Docs");
+        docsHeader.getStyleClass().add("sidebar-title");
+        docsHeader.setStyle("-fx-font-size: 16px; -fx-padding: 16 0 8 0;");
+        sidebarContent.getChildren().add(docsHeader);
+
+        for (String topic : DocsView.getAllDocs().keySet()) {
+            Button btn = new Button(topic);
+            btn.getStyleClass().add("problem-btn");
+            btn.setMaxWidth(Double.MAX_VALUE);
+            btn.setOnAction(e -> showDocs(topic));
+            sidebarContent.getChildren().add(btn);
+        }
+
+        sidebar.getChildren().add(sidebarScroll);
     }
 
     private void buildContent() {
@@ -169,6 +193,13 @@ public class MainView {
         });
 
         contentArea.getChildren().addAll(header, descFlow, sigLabel, codeEditor, runBtn, resultsScroll);
+    }
+
+    private void showDocs(String topic) {
+        contentArea.getChildren().clear();
+        ScrollPane docsContent = DocsView.buildDocsContent(topic);
+        VBox.setVgrow(docsContent, Priority.ALWAYS);
+        contentArea.getChildren().add(docsContent);
     }
 
     public Parent getRoot() {

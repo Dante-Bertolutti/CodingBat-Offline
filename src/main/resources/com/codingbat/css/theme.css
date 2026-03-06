@@ -121,6 +121,21 @@
     -fx-line-spacing: 3;
 }
 
+.doc-section-title {
+    -fx-text-fill: #ff9900;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 0 0 0;
+}
+
+.sidebar-scroll {
+    -fx-background-color: transparent;
+}
+
+.sidebar-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
 .method-signature {
     -fx-text-fill: #ff9900;
     -fx-font-family: "Consolas", "Courier New", monospace;
