@@ -38,3 +38,36 @@ jar {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
+
+// Collect all runtime jars (thin) for jpackage
+tasks.register('collectDeps', Copy) {
+    from configurations.runtimeClasspath
+    into "${buildDir}/jpackage-input"
+}
+
+tasks.register('thinJar', Jar) {
+    archiveBaseName = 'codingbat-app'
+    archiveVersion = ''
+    from sourceSets.main.output
+    manifest {
+        attributes 'Main-Class': 'com.codingbat.App'
+    }
+    destinationDirectory = file("${buildDir}/jpackage-input")
+}
+
+tasks.register('packageExe', Exec) {
+    dependsOn 'thinJar', 'collectDeps'
+    def jpackageDir = "${buildDir}/jpackage-input"
+    def outputDir = "${buildDir}/package"
+    commandLine "${org.gradle.internal.jvm.Jvm.current().javaHome}/bin/jpackage",
+        '--type', 'app-image',
+        '--name', 'CodingBat-Offline',
+        '--input', jpackageDir,
+        '--main-jar', 'codingbat-app.jar',
+        '--main-class', 'com.codingbat.App',
+        '--dest', outputDir,
+        '--java-options', '-p $APPDIR',
+        '--java-options', '--add-modules=javafx.controls,javafx.fxml',
+        '--java-options', '--add-opens=javafx.graphics/javafx.css=ALL-UNNAMED',
+        '--java-options', '--add-opens=javafx.graphics/com.sun.javafx.css=ALL-UNNAMED'
+}
