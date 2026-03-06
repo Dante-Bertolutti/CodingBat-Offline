@@ -1,33 +1,51 @@
 # CodingBat Offline
 
-An offline desktop application inspired by [CodingBat.com](https://codingbat.com) for practicing Java coding interview problems without an internet connection.
+An offline desktop application inspired by [CodingBat.com](https://codingbat.com) for practicing Java coding interview problems without an internet connection. Perfect for road trips, flights, or anywhere you want to sharpen your coding skills.
 
-## About
+## Download & Run (No Java Required)
 
-CodingBat Offline packages CodingBat-style coding challenges into a standalone `.exe` desktop app with a modern UI. Perfect for road trips, flights, or anywhere you want to sharpen your coding skills offline.
+1. Go to the [Releases](https://github.com/Dante-Bertolutti/CodingBat-Offline/releases/latest) page
+2. Download `CodingBat-Offline-Windows.zip`
+3. Extract the zip to any folder
+4. Double-click `CodingBat-Offline.exe`
+
+That's it — the exe bundles its own Java runtime so no install is needed.
+
+## Build From Source
+
+Requires **JDK 21+** installed.
+
+```bash
+git clone https://github.com/Dante-Bertolutti/CodingBat-Offline.git
+cd CodingBat-Offline
+```
+
+**Run directly:**
+```bash
+./gradlew run
+```
+
+**Build the standalone exe:**
+```bash
+./gradlew packageExe
+```
+The exe will be at `build/package/CodingBat-Offline/CodingBat-Offline.exe`
+
+## Features
+
+- **80+ coding problems** across 10 categories (Warmup 1-2, String 1-2, Array 1-2, Logic 1-2, Recursion 1-2)
+- **Built-in code editor** with Java syntax highlighting (keywords, strings, numbers, comments)
+- **Instant feedback** — compiles and runs your solution in-app against test cases
+- **Java docs tab** — quick reference for strings, arrays, recursion, operators, and more with code examples
+- **Dark theme** — MDB-inspired orange and black color scheme
+- **Fully offline** — no internet connection needed
 
 ## Tech Stack
 
-- **Language:** Java 21
-- **UI Framework:** JavaFX (modern, styled desktop GUI)
-- **Build Tool:** Gradle
-- **Packaging:** jpackage (bundles JRE + app into a native `.exe`)
-- **Styling:** CSS (JavaFX supports CSS theming for a modern look)
-
-## Features (Planned)
-
-- Offline Java coding challenges (Warmup, String, Array, Logic, Recursion, etc.)
-- Built-in code editor with syntax highlighting
-- Instant feedback — compile and run solutions in-app
-- Progress tracking across sessions
-- Clean, modern dark-themed UI
-
-## Building
-
-```bash
-./gradlew build
-./gradlew jpackage   # produces a native .exe installer
-```
+- **Java 21** + **JavaFX** for the desktop UI
+- **RichTextFX** for syntax-highlighted code editing
+- **Gradle** build system with wrapper included
+- **jpackage** to bundle everything into a native Windows exe
 
 ## License
 
